@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "exif-js": "^2.2.1"
+    "exif-js": "^2.2.1",
+    "font-awesome": "^4.7.0"
   }
 }
