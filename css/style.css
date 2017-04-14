@@ -24,6 +24,13 @@ button {
 }
 .action {
   position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-right: -50%;
+}
+#photo-list {
+  position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translate(-50%, 0);
@@ -61,4 +68,8 @@ button {
   width: 70%;
   height: 70%;
   -webkit-tap-highlight-color: transparent;
+}
+.icon {
+  width: 45px;
+  height: 45px;
 }

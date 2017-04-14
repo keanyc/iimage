@@ -1,6 +1,6 @@
 var app;
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
 var img = new Image();
 
 (function () {
@@ -25,13 +25,18 @@ var img = new Image();
       document.getElementById('forward').addEventListener('click', app.forward, false);
       document.getElementById('prev').addEventListener('click', app.prev, false);
       document.getElementById('next').addEventListener('click', app.next, false);
+      document.getElementById('photo-list').addEventListener('click', app.render, false);
     },
-    render: function () {
+    render: function (e) {
+      if (typeof e !== 'undefined') {
+        app.i = +e.target.dataset.id;
+      }
       img.onload = app.renderImage;
       img.src = app.photo[app.i];
+      app.list();
     },
     renderImage: function () {
-      var image = document.createElement("IMG");
+      var image = document.createElement('IMG');
       image.src = img.src;
       EXIF.getData(image, function() {
         var allMetaData = EXIF.getAllTags(this);
@@ -99,7 +104,7 @@ var img = new Image();
       default:
         speed = 100;
       }
-      
+
       return speed;
     },
     backward: function () {
@@ -149,6 +154,31 @@ var img = new Image();
 
       app.render();
       app.i = i;
+    },
+    list: function () {
+      var html = '';
+      var range = 4;
+      var index = +app.i;
+      var start = index - range + 1;
+      var end = index + range;
+
+      if (start < 0) {
+        start = 0;
+      }
+
+      if (end > app.photo.length) {
+        end = app.photo.length;
+      }
+
+      for (var i = start; i < end; i++) {
+        if (i === index) {
+          html = html + '<img src="' + app.photo[i] + '" class="icon" data-id="' + i + '" style="margin: 0 10px;" />';
+        } else {
+          html = html + '<img src="' + app.photo[i] + '" class="icon" data-id="' + i + '" />';
+        }
+      }
+
+      document.getElementById('photo-list').innerHTML = html;
     }
   };
 })();
