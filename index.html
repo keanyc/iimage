@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<title>photo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <canvas id="canvas" width="375" height="375"></canvas>
+  <div class="control">
+    <div id="ctrl-play-and-stop"></div>
+    <div id="ctrl-backward"></div>
+    <div id="ctrl-forward"></div>
+  </div>
+  <div class="action">
+    <button id="play"><i class="fa fa-play"></i></button>
+    <button id="stop"><i class="fa fa-stop"></i></button>
+    <button id="prev"><i class="fa fa-step-backward"></i></button>
+    <button id="next"><i class="fa fa-step-forward"></i></button>
+    <button id="backward"><i class="fa fa-fast-backward"></i></button>
+    <button id="forward"><i class="fa fa-fast-forward"></i></button>
+  </div>
+
+  <script src="node_modules/exif-js/exif.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    app.photo = [
+      'https://c1.staticflickr.com/3/2815/33165582704_470fa377c7_z.jpg',
+      'https://c1.staticflickr.com/3/2868/33967640216_32c53e6c87_z.jpg',
+      'https://c1.staticflickr.com/3/2889/33967505275_d80afe7c23_z.jpg',
+      'https://c1.staticflickr.com/3/2881/33152773664_1f9878e26d_z.jpg',
+      'https://c1.staticflickr.com/1/601/33026465643_298afe2e11_z.jpg',
+      'https://c2.staticflickr.com/4/3942/33163830174_bd3099b0a6_z.jpg',
+      'https://c1.staticflickr.com/9/8416/29644162724_b7f52a91ff_z.jpg'
+    ];
+    app.init();
+  </script>
+</body>
+</html>
